@@ -2,7 +2,7 @@
  * Creates the db is not made and creates tables and relationships if not created already
  */
 const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('EmployeeDB.db')
+const db = new sqlite3.Database("Employee.db")
 
 db.serialize(function(){
     db.run('CREATE TABLE IF NOT EXISTS Employees (PersonID INTEGER PRIMARY KEY AUTOINCREMENT, LastName varchar(255), FirstName varchar(255))')

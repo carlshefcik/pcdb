@@ -3,16 +3,33 @@
   <head>
     <meta charset="UTF-8">
     <title>PC Employee Database</title>
+
+    <script src="./index.js"></script>
+    <!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
+    <script src="./node_modules/popper.js/dist/umd/popper.js"></script>
+
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    
   </head>
   <body>
-    <h1>Landing Page For Peer Connections Application</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div class="container text-center">
+      <br>
+      
+      <img src="./public/Logo.png" class="img-fluid rounded" style="background-color: white">
+      <h1>Employee DB</h1>
+      <br>
+      <a href="MainMenu.html">
+        <button class="btn btn-primary">Enter Database</button>
+      </a>
+      <br><br>
 
-    <p>This page with just have the peer connections logo and then take you to the main menu</p>
 
+      <p id='employees'></p>
+      <p>test test test test test test</p>
+    </div>
+      
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
