@@ -1,0 +1,19 @@
+{
+  "name": "pcdb",
+  "version": "1.0.0",
+  "description": "A minimal Electron application that hooks to an internal db to store employee data",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-builder": "^20.28.4"
+  },
+  "dependencies": {
+    "electron-rebuild": "^1.8.2",
+    "sqlite3": "^4.0.2"
+  }
+}
