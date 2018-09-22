@@ -8,7 +8,7 @@ db.serialize(function(){
     db.run('CREATE TABLE IF NOT EXISTS Employees (PersonID INTEGER PRIMARY KEY AUTOINCREMENT, LastName varchar(255), FirstName varchar(255))')
     
     // insert command
-    //db.run('INSERT INTO Employees (LastName, FirstName) VALUES ("Shefcik", "Carl")')
+    db.run('INSERT INTO Employees (LastName, FirstName) VALUES ("Shefcik", "Carl")')
 
     // delete command
     //db.run('DELETE FROM Employees WHERE PersonID=2 ')

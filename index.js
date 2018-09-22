@@ -1,32 +1,93 @@
 window.$ = window.jQuery = require('jquery')
 
-const fs = require('fs')
-const path = require('path')
-const sqlite3 = require('sqlite3').verbose()
-
-// Hook up to database
-//let dbFile = path.join(app.getAppPath(), 'EmployeeDB.db')
-const db = new sqlite3.Database("Employee.db")
-
-console.log(document)
-
-let employee1 = []
+const colorArray = [
+    '#2cb2c9',
+    '#93dae3',
+    '#c6e9ed'
+]
 
 $(document).ready(()=>{
-    console.log('hello')
-    loadPage()
-    function loadPage(){
-        db.all('SELECT * FROM Employees', (err, rows)=>{
-            console.log(rows)
+    const canvas = document.querySelector("canvas")
+    canvas.width = window.innerWidth-2
+    canvas.height = window.innerHeight-5
+    const c = canvas.getContext('2d')
 
-            // solution from https://stackoverflow.com/questions/1078118/how-do-i-iterate-over-a-json-structure
-            let obj = rows[0] //assigns object in array
-            for (var key in obj){ // key = object attribute name & obj = the object itself
-                var attrName = key // the arributes name is the key
-                var attrValue = obj[key] // how to retireve the obj value
-                employee1.push(obj[key])
+    let mouse ={ x: undefined, y: undefined}
+
+    window.addEventListener('mousemove', (e)=>{
+        mouse.x = e.x
+        mouse.y = e.y
+    })
+
+    function Circle(x,y,dx,dy,radius){
+        this.x = x
+        this.y = y
+        this.dx = dx
+        this.dy = dy
+        this.radius = radius
+        this.color = colorArray[Math.floor(Math.random()*colorArray.length)]
+
+        this.draw = function() {
+            c.beginPath()
+            c.arc(this.x,this.y,this.radius,0,Math.PI*2,false)
+            c.fillStyle = this.color
+            c.fill();
+        }
+
+        this.update = function() {
+            if(this.x + radius > innerWidth-2 || this.x - radius < 0){
+                this.dx = -this.dx
             }
-            document.getElementById('employees').innerHTML = employee1
+            if(this.y + radius > innerHeight-5 || this.y - radius < 0){
+                this.dy = -this.dy
+            }
+            this.x += this.dx
+            this.y += this.dy
+
+            if(mouse.x-this.x < 50 && this.x-mouse.x < 50 && mouse.y-this.y < 50 && this.y-mouse.y < 50 ){ 
+                if(this.radius < 37){
+                    this.radius += 4
+                }
+            }
+            else if(this.radius > 3){
+                this.radius -= 1
+            }
+
+            this.draw();
+        }
+
+    }
+
+    let circleArray = []
+
+    for(let i=0; i < 300; i++){
+        let radius = 3
+        let x = (Math.random()*(innerWidth-radius*2))+radius
+        let y = (Math.random()*(innerHeight-radius*2))+radius
+        let dx = (Math.random() - 0.5) * 2
+        let dy = (Math.random() - 0.5) * 2
+
+        circleArray.push(new Circle(x,y,dx,dy,radius))
+    }
+    console.log(circleArray)
+    circleArray.forEach((e)=>{
+        console.log(e);
+    })
+
+    function animate(){
+        c.clearRect(0,0,innerWidth,innerHeight)
+        requestAnimationFrame(animate)
+
+        circleArray.forEach((e)=>{
+            e.update();
         })
     }
+    
+    animate();
+
+    window.addEventListener("resize", ()=>{
+        canvas.width = window.innerWidth -2
+        canvas.height = window.innerHeight-5
+        //document.querySelector('body').style('margin-top: 20%;')
+    })
 })

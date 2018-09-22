@@ -4,35 +4,50 @@
     <meta charset="UTF-8">
     <title>PC Employee Database</title>
 
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+
     <script src="./index.js"></script>
-    <!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
+
     <script src="./node_modules/popper.js/dist/umd/popper.js"></script>
 
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-    
+    <style>
+      body{
+        margin:0;
+        padding:0;
+      }
+      canvas{
+        position:absolute;
+        left:0;
+        top:0;
+        z-index:-1;
+      }
+      .footer {
+        position: fixed;
+        right: 5%;
+        bottom: 0;
+        width: 100%;
+        text-align: right;
+        color: gray;
+      }
+    </style>
   </head>
   <body>
-    <div class="container text-center">
-      <br>
-      
+    <canvas id="myCanvas"></canvas>
+    
+    <div class="container text-center" style="margin-top: 10%;">
       <img src="./public/Logo.png" class="img-fluid rounded" style="background-color: white">
       <h1>Employee DB</h1>
       <br>
       <a href="MainMenu.html">
-        <button class="btn btn-primary">Enter Database</button>
+        <button class="btn btn-primary" style="background-color: #2cb2c9; border-color: #2cb2c9; ;">Enter Database</button>
       </a>
-      <br><br>
-
-
-      <p id='employees'></p>
-      <p>test test test test test test</p>
     </div>
-      
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
+
+    <div class='footer'>
+      <p>SJSU Peer Connections &reg;</p>
+    </div>
   </body>
 </html>
