@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PC Employee Database</title>
+
+    <script src="./components/dbtest.js"></script>
+
+    <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <style>
+        body{
+            margin: 1%;
+            padding: 0;
+            text-align: center;
+        }
+        .footer {
+            position: fixed;
+            right: 5%;
+            bottom: 0;
+            width: 100%;
+            
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="comtainer">
+        <h1 style="text-align:left;">Main Menu</h1>
+        <br><br>
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <a href="../index.html"><button class="btn btn-primary" style="background-color: #2cb2c9; border-color: #2cb2c9;">Return to circles</button></a>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <button class="btn btn-primary" style="background-color: #2cb2c9; border-color: #2cb2c9;">Search for Employee</button>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <button class="btn btn-primary" style="background-color: #2cb2c9; border-color: #2cb2c9;">Add New Employee</button>
+            </div>
+            <br><br>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <a href="../index.html"><button class="btn" style="background-color: white; border-color: #2cb2c9; color: #2cb2c9;"">Return to circles</button></a>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <button class="btn" style="background-color: white; border-color: #2cb2c9; color: #2cb2c9;">Search for Employee</button>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <button class="btn" style="background-color: white; border-color: #2cb2c9; color: #2cb2c9;">Add New Employee</button>
+            </div>
+            <br><br>
+        </div>
+        
+        <p id='employees'></p>
+    </div>
+</body>
+</html>

@@ -11,7 +11,7 @@ db.serialize(function(){
     db.run('INSERT INTO Employees (LastName, FirstName) VALUES ("Shefcik", "Carl")')
 
     // delete command
-    //db.run('DELETE FROM Employees WHERE PersonID=2 ')
+    // db.run('DELETE FROM Employees')
 
     db.all('SELECT * FROM Employees', (err, rows)=>{
         console.log(rows)
