@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* text-align: left; */
+}
+.MainMenu{
+    text-align: center;
+}
+.footer {
+    position: fixed;
+    right: 5%;
+    bottom: 0;
+    width: 100%;
+    color: gray;
+}
+.dataSubmit{
+    text-align: right;
+}
+.searchBar{
+    text-align: center;
+}
+.btn-primary{
+    background-color: #2cb2c9; 
+    border-color: #2cb2c9;
+}
+.btn-secondary:hover{
+    background-color: red;
+}
+h5{
+    color: #2cb2c9;
+}
